@@ -1,5 +1,5 @@
 export class CannotReadEmployeesError extends Error {
-    constructor(cause: string) {
-        super(cause);
-    }
+  constructor(cause: string) {
+    super(cause);
+  }
 }

@@ -1,25 +1,25 @@
-import {Employee} from "./Employee";
+import { Employee } from "./Employee";
 
 export class Greeting {
-    private readonly _header: string;
-    private readonly _content: string;
+  private readonly _header: string;
+  private readonly _content: string;
 
-    constructor(header: string, content: string) {
-        this._header = header;
-        this._content = content;
-    }
+  constructor(header: string, content: string) {
+    this._header = header;
+    this._content = content;
+  }
 
-    static forBirthdayOf(employee: Employee): Greeting {
-        const content = `Happy Birthday, dear ${employee.getFirstName()}!`;
-        const header = "Happy Birthday!";
-        return new Greeting(header, content);
-    }
+  static forBirthdayOf(employee: Employee): Greeting {
+    const content = `Happy Birthday, dear ${employee.getFirstName()}!`;
+    const header = "Happy Birthday!";
+    return new Greeting(header, content);
+  }
 
-    header(): string {
-        return this._header;
-    }
+  header(): string {
+    return this._header;
+  }
 
-    content(): string {
-        return this._content;
-    }
+  content(): string {
+    return this._content;
+  }
 }

@@ -7,5 +7,12 @@
     "progress"
   ],
   "testRunner": "vitest",
-  "coverageAnalysis": "perTest"
+  "coverageAnalysis": "perTest",
+  "checkers": [
+    "typescript"
+  ],
+  "tsconfigFile": "tsconfig.json",
+  "typescriptChecker": {
+    "prioritizePerformanceOverAccuracy": true
+  }
 }

@@ -1,8 +1,8 @@
-import {Rover} from '../src/Rover';
+import { describe, it, expect } from "vitest";
+import { Rover } from "../src/Rover";
 
-describe('Rover Commands List', () => {
-
-  it('no commands', () => {
+describe("Rover Commands List", () => {
+  it("no commands", () => {
     const rover = new Rover(0, 0, "N");
 
     rover.receive("");
@@ -10,7 +10,7 @@ describe('Rover Commands List', () => {
     expect(new Rover(0, 0, "N")).toEqual(rover);
   });
 
-  it('two commands', () => {
+  it("two commands", () => {
     const rover = new Rover(0, 0, "N");
 
     rover.receive("lf");
@@ -18,12 +18,11 @@ describe('Rover Commands List', () => {
     expect(new Rover(-1, 0, "W")).toEqual(rover);
   });
 
-  it('many commands', () => {
+  it("many commands", () => {
     const rover = new Rover(0, 0, "N");
 
     rover.receive("ffrbbrfflff");
 
     expect(new Rover(0, 0, "E")).toEqual(rover);
   });
-
 });

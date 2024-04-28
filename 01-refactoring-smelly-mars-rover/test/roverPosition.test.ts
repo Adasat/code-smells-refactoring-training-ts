@@ -1,8 +1,8 @@
-import {Rover} from '../src/Rover';
+import { describe, it, expect } from "vitest";
+import { Rover } from "../src/Rover";
 
-describe('Rover Position', () => {
-
-  it('facing north move forward', () => {
+describe("Rover Position", () => {
+  it("facing north move forward", () => {
     const rover = new Rover(0, 0, "N");
 
     rover.receive("f");
@@ -10,7 +10,7 @@ describe('Rover Position', () => {
     expect(new Rover(0, 1, "N")).toEqual(rover);
   });
 
-  it('facing north move backward', () => {
+  it("facing north move backward", () => {
     const rover = new Rover(0, 0, "N");
 
     rover.receive("b");
@@ -18,7 +18,7 @@ describe('Rover Position', () => {
     expect(new Rover(0, -1, "N")).toEqual(rover);
   });
 
-  it('facing south move forward', () => {
+  it("facing south move forward", () => {
     const rover = new Rover(0, 0, "S");
 
     rover.receive("f");
@@ -26,7 +26,7 @@ describe('Rover Position', () => {
     expect(new Rover(0, -1, "S")).toEqual(rover);
   });
 
-  it('facing south move backward', () => {
+  it("facing south move backward", () => {
     const rover = new Rover(0, 0, "S");
 
     rover.receive("b");
@@ -34,7 +34,7 @@ describe('Rover Position', () => {
     expect(new Rover(0, 1, "S")).toEqual(rover);
   });
 
-  it('facing west move forward', () => {
+  it("facing west move forward", () => {
     const rover = new Rover(0, 0, "W");
 
     rover.receive("f");
@@ -42,7 +42,7 @@ describe('Rover Position', () => {
     expect(new Rover(-1, 0, "W")).toEqual(rover);
   });
 
-  it('facing west move backward', () => {
+  it("facing west move backward", () => {
     const rover = new Rover(0, 0, "W");
 
     rover.receive("b");
@@ -50,7 +50,7 @@ describe('Rover Position', () => {
     expect(new Rover(1, 0, "W")).toEqual(rover);
   });
 
-  it('facing east move forward', () => {
+  it("facing east move forward", () => {
     const rover = new Rover(0, 0, "E");
 
     rover.receive("f");
@@ -58,12 +58,11 @@ describe('Rover Position', () => {
     expect(new Rover(1, 0, "E")).toEqual(rover);
   });
 
-  it('facing east move backward', () => {
+  it("facing east move backward", () => {
     const rover = new Rover(0, 0, "E");
 
     rover.receive("b");
 
     expect(new Rover(-1, 0, "E")).toEqual(rover);
   });
-
 });

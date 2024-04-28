@@ -1,6 +1,18 @@
 {
-  "checkers": ["typescript"],
+  "$schema": "./node_modules/@stryker-mutator/core/schema/stryker-schema.json",
+  "packageManager": "npm",
+  "reporters": [
+    "html",
+    "clear-text",
+    "progress"
+  ],
+  "testRunner": "vitest",
+  "coverageAnalysis": "perTest",
+  "checkers": [
+    "typescript"
+  ],
   "tsconfigFile": "tsconfig.json",
-  "timeoutMS": 5000,
-  "timeoutFactor": 1.5
+  "typescriptChecker": {
+    "prioritizePerformanceOverAccuracy": true
+  }
 }

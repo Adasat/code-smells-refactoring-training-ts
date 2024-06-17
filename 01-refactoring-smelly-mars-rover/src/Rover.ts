@@ -18,59 +18,27 @@ export class Rover {
   }
 
   private process(command: string) {
-    if (command === "l" || command === "r") {
+    if (command === "l") {
       // Rotate Rover
       if (this.direction === "N") {
-        if (command === "r") {
-          this.direction = "E";
-        } else {
-          this.direction = "W";
-        }
+        this.direction = "W";
       } else if (this.direction === "S") {
-        if (command === "r") {
-          this.direction = "W";
-        } else {
-          this.direction = "E";
-        }
+        this.direction = "E";
       } else if (this.direction === "W") {
-        if (command === "r") {
-          this.direction = "N";
-        } else {
-          this.direction = "S";
-        }
+        this.direction = "S";
       } else {
-        if (command === "r") {
-          this.direction = "S";
-        } else {
-          this.direction = "N";
-        }
+        this.direction = "N";
       }
-    } else if (command === "l" || command === "r") {
+    } else if (command === "r") {
       // Rotate Rover
       if (this.direction === "N") {
-        if (command === "r") {
-          this.direction = "E";
-        } else {
-          this.direction = "W";
-        }
+        this.direction = "E";
       } else if (this.direction === "S") {
-        if (command === "r") {
-          this.direction = "W";
-        } else {
-          this.direction = "E";
-        }
+        this.direction = "W";
       } else if (this.direction === "W") {
-        if (command === "r") {
-          this.direction = "N";
-        } else {
-          this.direction = "S";
-        }
+        this.direction = "N";
       } else {
-        if (command === "r") {
-          this.direction = "S";
-        } else {
-          this.direction = "N";
-        }
+        this.direction = "S";
       }
     } else {
       // Displace Rover

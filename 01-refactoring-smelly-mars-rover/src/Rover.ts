@@ -35,13 +35,10 @@ export class Rover {
 
   private process(command: string) {
     if (command === "l") {
-      // Rotate Rover
       this.rotateLeft();
     } else if (command === "r") {
-      // Rotate Rover
       this.rotateRight();
     } else {
-      // Displace Rover
       this.moveForward(command);
     }
   }

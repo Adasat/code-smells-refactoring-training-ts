@@ -13,5 +13,5 @@ and to fix them applying some useful refactorings.
 3. Primitive Obsession
 4. Data Clumb
 5. Boolean complex expression
-6. Rotate Rover
+6. Rotate Rover -> Innecessary explained comment
 

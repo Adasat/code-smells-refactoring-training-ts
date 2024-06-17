@@ -1,12 +1,20 @@
+enum Direction {
+  N = "N",
+  S = "S",
+  W = "W",
+  E = "E",
+}
+
 export class Rover {
-  private direction: string;
+  private direction: Direction;
   private y: number;
   private x: number;
 
   constructor(x: number, y: number, direction: string) {
     this.x = x;
     this.y = y;
-    this.direction = direction;
+    this.direction = direction as Direction;
+    
   }
 
   public receive(commandsSequence: string) {
@@ -20,25 +28,25 @@ export class Rover {
   private process(command: string) {
     if (command === "l") {
       // Rotate Rover
-      if (this.direction === "N") {
-        this.direction = "W";
-      } else if (this.direction === "S") {
-        this.direction = "E";
-      } else if (this.direction === "W") {
-        this.direction = "S";
+      if (this.direction === Direction.N) {
+        this.direction = Direction.W;
+      } else if (this.direction === Direction.S) {
+        this.direction = Direction.E;
+      } else if (this.direction === Direction.W) {
+        this.direction = Direction.S;
       } else {
-        this.direction = "N";
+        this.direction = Direction.N;
       }
     } else if (command === "r") {
       // Rotate Rover
-      if (this.direction === "N") {
-        this.direction = "E";
-      } else if (this.direction === "S") {
-        this.direction = "W";
-      } else if (this.direction === "W") {
-        this.direction = "N";
+      if (this.direction === Direction.N) {
+        this.direction = Direction.E;
+      } else if (this.direction === Direction.S) {
+        this.direction = Direction.W;
+      } else if (this.direction === Direction.W) {
+        this.direction = Direction.N;
       } else {
-        this.direction = "S";
+        this.direction = Direction.S;
       }
     } else {
       // Displace Rover
@@ -49,11 +57,11 @@ export class Rover {
       }
       let displacement = displacement1;
 
-      if (this.direction === "N") {
+      if (this.direction === Direction.N) {
         this.y += displacement;
-      } else if (this.direction === "S") {
+      } else if (this.direction === Direction.S) {
         this.y -= displacement;
-      } else if (this.direction === "W") {
+      } else if (this.direction === Direction.W) {
         this.x -= displacement;
       } else {
         this.x += displacement;

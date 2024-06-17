@@ -28,26 +28,10 @@ export class Rover {
   private process(command: string) {
     if (command === "l") {
       // Rotate Rover
-      if (this.direction === Direction.N) {
-        this.direction = Direction.W;
-      } else if (this.direction === Direction.S) {
-        this.direction = Direction.E;
-      } else if (this.direction === Direction.W) {
-        this.direction = Direction.S;
-      } else {
-        this.direction = Direction.N;
-      }
+      this.rotateLeft();
     } else if (command === "r") {
       // Rotate Rover
-      if (this.direction === Direction.N) {
-        this.direction = Direction.E;
-      } else if (this.direction === Direction.S) {
-        this.direction = Direction.W;
-      } else if (this.direction === Direction.W) {
-        this.direction = Direction.N;
-      } else {
-        this.direction = Direction.S;
-      }
+      this.rotateRigth();
     } else {
       // Displace Rover
       let displacement1 = -1;
@@ -66,6 +50,30 @@ export class Rover {
       } else {
         this.x += displacement;
       }
+    }
+  }
+
+  private rotateRigth() {
+    if (this.direction === Direction.N) {
+      this.direction = Direction.E;
+    } else if (this.direction === Direction.S) {
+      this.direction = Direction.W;
+    } else if (this.direction === Direction.W) {
+      this.direction = Direction.N;
+    } else {
+      this.direction = Direction.S;
+    }
+  }
+
+  private rotateLeft() {
+    if (this.direction === Direction.N) {
+      this.direction = Direction.W;
+    } else if (this.direction === Direction.S) {
+      this.direction = Direction.E;
+    } else if (this.direction === Direction.W) {
+      this.direction = Direction.S;
+    } else {
+      this.direction = Direction.N;
     }
   }
 }

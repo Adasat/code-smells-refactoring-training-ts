@@ -5,14 +5,22 @@ enum Direction {
   E = "E",
 }
 
-export class Rover {
-  private direction: Direction;
-  private y: number;
-  private x: number;
+class Position {
+  x: number;
+  y: number;
 
-  constructor(x: number, y: number, direction: string) {
+  constructor(x: number, y: number) {
     this.x = x;
     this.y = y;
+  }
+}
+
+export class Rover {
+  private direction: Direction;
+  private position: Position;
+
+  constructor(x: number, y: number, direction: string) {
+    this.position = new Position(x, y);
     this.direction = direction as Direction;
     
   }
@@ -31,29 +39,33 @@ export class Rover {
       this.rotateLeft();
     } else if (command === "r") {
       // Rotate Rover
-      this.rotateRigth();
+      this.rotateRight();
     } else {
       // Displace Rover
-      let displacement1 = -1;
-
-      if (command === "f") {
-        displacement1 = 1;
-      }
-      let displacement = displacement1;
-
-      if (this.direction === Direction.N) {
-        this.y += displacement;
-      } else if (this.direction === Direction.S) {
-        this.y -= displacement;
-      } else if (this.direction === Direction.W) {
-        this.x -= displacement;
-      } else {
-        this.x += displacement;
-      }
+      this.moveForward(command);
     }
   }
 
-  private rotateRigth() {
+  private moveForward(command: string) {
+    let displacement1 = -1;
+
+    if (command === "f") {
+      displacement1 = 1;
+    }
+    let displacement = displacement1;
+
+    if (this.direction === Direction.N) {
+      this.position.y += displacement;
+    } else if (this.direction === Direction.S) {
+      this.position.y -= displacement;
+    } else if (this.direction === Direction.W) {
+      this.position.x -= displacement;
+    } else {
+      this.position.x += displacement;
+    }
+  }
+
+  private rotateRight() {
     if (this.direction === Direction.N) {
       this.direction = Direction.E;
     } else if (this.direction === Direction.S) {
